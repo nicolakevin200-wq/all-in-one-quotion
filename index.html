@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-in-One Quotation System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>All-in-One Quotation System</h1>
+        <p>Professional Quotation Management</p>
+    </header>
+
+    <main class="container">
+
+        <section class="card">
+            <h2>Company Information</h2>
+            <input type="text" id="company" placeholder="Company Name">
+            <input type="text" id="companyAddress" placeholder="Company Address">
+            <input type="email" id="companyEmail" placeholder="Company Email">
+        </section>
+
+        <section class="card">
+            <h2>Customer Information</h2>
+            <input type="text" id="customer" placeholder="Customer Name">
+            <input type="text" id="customerAddress" placeholder="Customer Address">
+            <input type="email" id="customerEmail" placeholder="Customer Email">
+        </section>
+
+        <section class="card">
+            <h2>Quotation Details</h2>
+            <input type="text" id="quoteNumber" placeholder="Quotation Number">
+            <label>Quotation Date</label>
+            <input type="date" id="quoteDate">
+        </section>
+
+        <section class="card">
+            <h2>Products / Services</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="items"></tbody>
+            </table>
+
+            <button type="button" onclick="addItem()">+ Add Item</button>
+        </section>
+
+        <section class="card totals">
+            <h2>Quotation Summary</h2>
+
+            <p>Subtotal: <span id="subtotal">0.00</span></p>
+
+            <label>VAT (%)</label>
+            <input type="number" id="vat" value="18" min="0"
+                oninput="calculateTotal()">
+
+            <p>VAT Amount: <span id="vatAmount">0.00</span></p>
+            <h2>Grand Total: <span id="grandTotal">0.00</span></h2>
+        </section>
+
+        <section class="card">
+            <h2>Terms & Conditions</h2>
+            <textarea id="terms" placeholder="Enter quotation terms and conditions"></textarea>
+        </section>
+
+        <div class="actions">
+            <button type="button" onclick="saveQuote()">Save Quotation</button>
+            <button type="button" onclick="window.print()">Print / PDF</button>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
