@@ -1,0 +1,70 @@
+
+<form id="signinForm">
+
+  <label>Email Address</label>
+  <input
+    type="email"
+    id="email"
+    placeholder="Enter your email"
+    required
+  >
+
+  <label>Password</label>
+  <input
+    type="password"
+    id="password"
+    placeholder="Enter your password"
+    required
+  >
+
+  <div style="text-align:right; margin-top:10px;">
+    <a href="forgot-password.html">
+      Forgot Password?
+    </a>
+  </div>
+
+  <p id="message" class="message" aria-live="polite"></p>
+
+  <button type="submit" id="signinBtn">
+    Sign In
+  </button>
+
+</form>
+
+<div class="divider-text">
+  OR
+</div>
+
+<button type="button" id="googleSignInBtn"
+        class="google-btn">
+
+  <img
+    src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg"
+    alt="Google"
+  >
+
+  Continue with Google
+
+</button>
+
+<p id="googleMessage" class="message"
+   aria-live="polite"></p>
+
+<script type="module">
+  import { signInWithGoogle } from "./google-auth.js";
+
+  const button = document.getElementById("googleSignInBtn");
+  const message = document.getElementById("googleMessage");
+
+  button.addEventListener("click", async () => {
+    button.disabled = true;
+    message.textContent = "Connecting to Google...";
+
+    try {
+      await signInWithGoogle();
+    } catch (error) {
+      message.textContent = error.message;
+      button.disabled = false;
+    }
+  });
+</script>

@@ -1,0 +1,188 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #2563eb);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.auth-container {
+  background: white;
+  width: 100%;
+  max-width: 430px;
+  padding: 35px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.logo {
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+  color: #2563eb;
+  margin-bottom: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #6b7280;
+  margin-bottom: 25px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 7px;
+  color: #374151;
+  font-weight: 600;
+}
+
+input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+}
+
+input:focus {
+  border-color: #2563eb;
+}
+
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 22px;
+  border: none;
+  border-radius: 8px;
+  background: #2563eb;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
+
+.bottom-text {
+  text-align: center;
+  margin-top: 20px;
+  color: #6b7280;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.message {
+  margin-top: 12px;
+  font-size: 14px;
+  color: #dc2626;
+}
+
+.success {
+  color: #15803d;
+}
+
+/* Google Authentication Button */
+
+.google-btn {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 13px;
+  margin-top: 15px;
+  background: white;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.google-btn:hover {
+  background: #f8fafc;
+  border-color: #aaa;
+}
+
+.google-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+.google-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.divider-text {
+  text-align: center;
+  margin: 20px 0;
+  color: #999;
+  font-size: 13px;
+}
+
+.saved-quotations {
+  max-width: 850px;
+  margin: 30px auto;
+  padding: 25px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.06);
+}
+
+.saved-quotations h2 {
+  margin-bottom: 20px;
+  color: #1e293b;
+}
+
+.saved-quotations input {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.quotation-card {
+  border: 1px solid #e2e8f0;
+  padding: 18px;
+  margin: 15px 0;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.quotation-card h3 {
+  color: #2563eb;
+  margin-bottom: 10px;
+}
+
+.quotation-card p {
+  margin: 8px 0;
+  color: #475569;
+}
+
+.quotation-card button {
+  background: #dc2626;
+  width: auto;
+  padding: 10px 20px;
+}

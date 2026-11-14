@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In - All-in-One Quotation</title>
+  <link rel="stylesheet" href="auth.css">
+</head>
+
+<body>
+
+<div class="auth-container">
+
+  <div class="logo">All-in-One Quotation</div>
+
+  <h1>Welcome Back!</h1>
+  <p class="subtitle">Sign in to access your account.</p>
+
+  <form id="signinForm">
+
+    <label>Email Address</label>
+    <input type="email" id="email"
+      placeholder="Enter your email" required>
+
+    <label>Password</label>
+    <input type="password" id="password"
+      placeholder="Enter your password" required>
+
+    <p id="message" class="message" aria-live="polite"></p>
+
+    <button type="submit" id="signinBtn">Sign In</button>
+
+  </form>
+
+  <p class="bottom-text">
+    Don't have an account?
+    <a href="signup.html">Create Account</a>
+  </p>
+
+</div>
+
+<script type="module">
+
+import { auth } from "./firebase.js";
+
+import {
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+const form = document.getElementById("signinForm");
+const message = document.getElementById("message");
+const button = document.getElementById("signinBtn");
+
+form.addEventListener("submit", async (e) => {
+
+  e.preventDefault();
+
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  button.disabled = true;
+  message.textContent = "Signing in...";
+
+  try {
+
+    await signInWithEmailAndPassword(auth, email, password);
+
+    window.location.href = "quotation.html";
+
+  } catch (error) {
+
+    message.textContent = "Invalid email or password.";
+    button.disabled = false;
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>

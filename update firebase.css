@@ -1,0 +1,9 @@
+import { initializeApp } from
+"https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
+  apiKey: "AIza...",
+  authDomain: "my-project.firebaseapp.com",
+  projectId: "my-project",
+  storageBucket: "my-project.firebasestorage.app",
+  messagingSenderId: "123456789",
+  appId: "1:123456789:web:abcdef"
+};

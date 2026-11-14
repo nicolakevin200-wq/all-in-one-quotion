@@ -1,0 +1,35 @@
+
+/* Forgot Password Page */
+
+.auth-container {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.auth-container input {
+  transition: border-color 0.3s ease;
+}
+
+.auth-container input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.auth-container a:hover {
+  text-decoration: underline;
+}
+
+.message.success {
+  color: #15803d !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -66,3 +66,5 @@ function saveQuote() {
 }
 
 addItem();
+
+rules_version = '2';

@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - All-in-One Quotation</title>
+  <link rel="stylesheet" href="auth.css">
+</head>
+
+<body>
+
+<div class="auth-container">
+
+  <div class="logo">All-in-One Quotation</div>
+
+  <h1>Create Account</h1>
+  <p class="subtitle">Create your account to get started.</p>
+
+  <form id="signupForm">
+
+    <label>Full Name</label>
+    <input type="text" id="name" placeholder="Enter your full name" required>
+
+    <label>Email Address</label>
+    <input type="email" id="email" placeholder="Enter your email" required>
+
+    <label>Password</label>
+    <input type="password" id="password"
+      placeholder="Create password" minlength="6" required>
+
+    <label>Confirm Password</label>
+    <input type="password" id="confirmPassword"
+      placeholder="Confirm password" minlength="6" required>
+
+    <p id="message" class="message" aria-live="polite"></p>
+
+    <button type="submit" id="signupBtn">Create Account</button>
+
+  </form>
+
+  <p class="bottom-text">
+    Already have an account?
+    <a href="signin.html">Sign In</a>
+  </p>
+
+</div>
+
+<script type="module">
+
+import { auth } from "./firebase.js";
+
+import {
+  createUserWithEmailAndPassword,
+  updateProfile
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-auth.js";
+
+const form = document.getElementById("signupForm");
+const message = document.getElementById("message");
+const button = document.getElementById("signupBtn");
+
+form.addEventListener("submit", async (e) => {
+
+  e.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const confirmPassword = document.getElementById("confirmPassword").value;
+
+  if (password !== confirmPassword) {
+    message.textContent = "Passwords do not match!";
+    return;
+  }
+
+  button.disabled = true;
+  message.textContent = "Creating account...";
+
+  try {
+
+    const userCredential =
+      await createUserWithEmailAndPassword(auth, email, password);
+
+    await updateProfile(userCredential.user, {
+      displayName: name
+    });
+
+    window.location.href = "quotation.html";
+
+  } catch (error) {
+
+    message.textContent = error.message;
+    button.disabled = false;
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>
